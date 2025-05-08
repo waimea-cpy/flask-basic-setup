@@ -1,0 +1,28 @@
+/* MAIN HEADER ***************************/
+
+body > header {
+    position: sticky;
+    top: 0;
+    background-color: var(--pico-background-color);
+}
+
+
+/* HOME PAGE HERO ***************************/
+
+#hero {
+    min-height: 25rem;
+    background-color: var(--pico-secondary-background);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+#hero h1 {
+    font-size: 6rem;
+    color: var(--pico-secondary-inverse);
+    text-align: center;
+}
+

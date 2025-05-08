@@ -1,23 +1,9 @@
 # Setup and Deployment
 
 
-## What is Flask?
-
-Flask is a **web back-end framework**. It uses the **Python** programming language and provides features such as:
-
-- Handling **HTTP requests**:
-    - **GET** (to read data)
-    - **POST** (to create new data)
-    - **PUT** (to update existing data)
-    - **DELETE** (to remove data)
-- **URL routing**, allowing the use of simple and meaningful URLs
-- Serving of **static files** (e.g. CSS, images, etc.)
-- **Templating** via [Jinja2](https://jinja.palletsprojects.com/templates/)
-
-
 ## Setting up a Development Environment
 
-To develop locally, you need to setup a **Python virtual enviroment (venv)** to keep your Python configuration isolated from the rest of your system.
+To develop locally, you need to setup a **Python virtual environment (venv)** to keep your Python configuration isolated from the rest of your system.
 
 ### Create the Virtual Environment
 
@@ -31,7 +17,7 @@ To develop locally, you need to setup a **Python virtual enviroment (venv)** to 
 
 2. **Activate** the virtual environment
 
-    *Note: If using VS Code's terminal, VS Code will offer to use / activate the virtual environment for you - select Yes*
+    *Note: If using __VS Code__'s terminal, VS Code will offer to use / activate the virtual environment for you - select __Yes__, and then relaunch the terminal. If you do this, there is no need for the following command.*
 
     Windows PowerShell:
 
@@ -55,10 +41,10 @@ To develop locally, you need to setup a **Python virtual enviroment (venv)** to 
 
 If you are returning to your project, you do not need to recreate your virtual environment, just activate and update it.
 
-*Note: If using VS Code as mentioned above, VS Code will automatically activate the environment as time you open its Terminal*
+*Note: If using __VS Code__ as mentioned above, VS Code will __automatically__ activate the environment as time you open its Terminal, and you don't need to do anything.*
 
 
-## Launching the Server
+### Launching the Server
 
 The Flask project is configured as a module called **app** (with main code in **\_\_init__.py**), which allows the the server to be run very easily with:
 
@@ -72,30 +58,39 @@ Or to get full debug info:
 flask run --debug
 ```
 
-## Deploying to Railway
 
-Deploying to Railway from this repo with no additional tweaking should 'just work'. Once setup, every time you push changes to your repo, the deployed app will be updated.
+## Deploying Your App to Render
 
-### Railway Setup
+Deploying to **Render**, an external web app host, is pretty simple. Once setup, every time you push changes to your repo, the app will be updated and redeployed.
 
-1. Go to [railway.app](railway.app) and **Sign in with GitHub**
 
-2. Create a new project
+### Your Render Account
 
-3. Link to your GH repo.
+1. Go to [Render](https://render.com/) and **Sign in with GitHub**
 
-4. In the Railway project settings:
+2. Sign up for the Hobby ($0) plan
 
-    - **Build**
-        - Check that *Builder* is **DockerFile** (should be auto-detected)
 
-    - **Deploy**
-        - Set a *Custom Start Command*:
+### Create a Project
 
-            ```
-            flask run --host=0.0.0.0
-            ```
+1. Create a new **Web Service**
 
-    - **Networking**
-        - Select *Generate a Domain* and make sure port is set to **5000** (should be auto-set)
+2. To see your list of GitHub repos, you will need to add credentials so that Render has access to your repos.
+
+3. Select this repo from the list
+
+4. In the deployment settings, set the following:
+
+    - Name: Can customise if you wish
+    - Language: **Python 3**
+    - Branch: **main**
+    - Region: **Singapore**
+    - Root Directory: *Leave blank*
+    - Build Command: `pip install -r requirements.txt`
+    - Start Command: `flask run --host=0.0.0.0 --port=10000`
+    - Instance Type: **Free**
+
+5. Deploy the web service, and it should be good to go!
+
+You will need to copy the public URL generated for the deployed app.
 

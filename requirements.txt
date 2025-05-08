@@ -1,6 +1,6 @@
-#----------------------------------------------------------------
-# Required packages to install via pip when deploying to Railway
-#----------------------------------------------------------------
+#--------------------------------------
+# Required packages to install via pip
+#--------------------------------------
 
 # Flask framework
 Flask

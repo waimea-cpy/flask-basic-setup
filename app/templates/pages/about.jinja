@@ -1,0 +1,45 @@
+{#
+    About page
+#}
+
+{% extends 'pages/base.jinja' %}
+
+
+{% block title %} About Flask {% endblock %}
+
+
+{% block content %}
+
+    <article>
+
+        <header>
+            <h1>What is Flask?</h1>
+        </header>
+
+        <figure>
+            <img src="/static/images/flask.png" alt="Flask Logo">
+
+            <figcaption>The Flask logo</figcaption>
+        </figure>
+
+        <p>Flask is a <strong>web back-end application framework</strong>. It is written in the <strong>Python</strong> programming language and provides features such as:
+
+        <ul>
+            <li>Handling HTTP requests: GET, POST, PUT, DELETE</li>
+            <li>URL routing, allowing the use of simple and meaningful URLs</li>
+            <li>Serving of static files (e.g. CSS, images, etc.)</li>
+            <li>Templating via Jinja2 templates</li>
+        </ul>
+
+        <p>Flask also supports extensions that can add application features, such as form validation, upload handling, authentication, etc.</p>
+
+        <p>Flask was created in 2010, and since then has been regularly voted the most popular web framework in the Python Developers Survey. Applications that use the Flask framework include Pinterest and LinkedIn.</p>
+
+        <footer>
+            <p>Find out more about <a href="https://flask.palletsprojects.com/en/stable/">Flask</a> and <a href="https://jinja.palletsprojects.com/en/stable/">Jinja</a></p>
+        </footer>
+
+    </article>
+
+{% endblock %}
+
